@@ -1,10 +1,21 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link, useLocation } from "react-router-dom";
 import Home from "./components/Home";
 import Details from "./components/Details";
 
 function App() {
+  const { search, pathname } = useLocation();
+  // console.log(search, pathname);
+
   return (
     <div className="h-screen w-full flex">
+      {(pathname != "/" || search.length > 0) && (
+        <Link
+          to="/"
+          className="absolute left-[22%] top-[3%] px-2 py-1 rounded border font-semibold text-lg text-rose-400 shadow-md border-red-500"
+        >
+          Home
+        </Link>
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/details/:id" element={<Details />} />
