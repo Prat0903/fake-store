@@ -1,6 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ProductContext } from "../utils/Context";
+import { nanoid } from "nanoid";
+import { useNavigate } from "react-router-dom";
 
 function Create() {
+  const navigate = useNavigate();
+  const [products, setProducts] = useContext(ProductContext);
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -9,8 +14,30 @@ function Create() {
 
   const addProductHandler = (event) => {
     event.preventDefault();
-    const product = { image, title, category, price, description };
-    console.log(product);
+
+    if (
+      title.trim().length < 5 ||
+      image.trim().length < 5 ||
+      category.trim().length < 5 ||
+      price.trim().length < 1 ||
+      description.trim().length < 5
+    ) {
+      alert("Every field should have atleast 4 characters");
+      return;
+    }
+
+    const product = {
+      id: nanoid(),
+      image,
+      title,
+      category,
+      price,
+      description,
+    };
+    setProducts([...products, product]);
+    localStorage.setItem("products", JSON.stringify([...products, product]));
+
+    navigate("/");
   };
 
   return (
