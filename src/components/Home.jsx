@@ -9,7 +9,6 @@ function Home() {
   const [products] = useContext(ProductContext);
   const { search } = useLocation();
   const category = decodeURIComponent(search.split("=")[1]);
-  // console.log(category);
 
   const [filteredProducts, setFilteredProducts] = useState(null);
 
@@ -26,7 +25,10 @@ function Home() {
   useEffect(() => {
     if (!filteredProducts || category == "undefined")
       setFilteredProducts(products);
-    if (category != "undefined") getProductsCategory();
+    if (category != "undefined") {
+      // getProductsCategory();
+      setFilteredProducts(products.filter((p) => p.category == category));
+    }
   }, [category, products]);
 
   return products ? (

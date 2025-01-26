@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+// import axios from "../utils/Axios";
 import { Link, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { ProductContext } from "../utils/Context";
@@ -20,8 +21,9 @@ function Details() {
 
   useEffect(() => {
     if (!product) {
-      setProduct(products.filter((p) => p.id === id)[0]);
+      setProduct(products.filter((p) => p.id == id)[0]);
     }
+    // getSingleProduct();
   }, []);
 
   return product ? (

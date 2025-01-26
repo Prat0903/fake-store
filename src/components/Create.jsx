@@ -35,8 +35,7 @@ function Create() {
       description,
     };
     setProducts([...products, product]);
-    localStorage.setItem("products", JSON.stringify([...products, product]));
-
+    localStorage.setItem("products", JSON.stringify([[...products, product]]));
     navigate("/");
   };
 
