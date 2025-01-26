@@ -1,14 +1,14 @@
-import { createContext, useState,useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "../utils/Axios";
 
 export const ProductContext = createContext();
 
-function Context(props) {
+const Context = (props) => {
   const [products, setProducts] = useState(
     JSON.parse(localStorage.getItem("products")) || null
   );
 
-  // function getProducts() {
+   // const getProducts = async () => {
   //   try {
   //     axios.get("/products").then((response) => {
   //       setProducts(response.data);
@@ -16,7 +16,7 @@ function Context(props) {
   //   } catch (error) {
   //     console.log(error);
   //   }
-  // }
+  // };
 
   // console.log(products);
 
@@ -29,6 +29,6 @@ function Context(props) {
       {props.children}
     </ProductContext.Provider>
   );
-}
+};
 
 export default Context;

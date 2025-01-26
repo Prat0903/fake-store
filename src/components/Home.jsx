@@ -5,7 +5,7 @@ import { ProductContext } from "../utils/Context";
 import Loading from "./Loading";
 import axios from "../utils/Axios";
 
-function Home() {
+const Home = () => {
   const [products] = useContext(ProductContext);
   const { search } = useLocation();
   const category = decodeURIComponent(search.split("=")[1]);
@@ -58,6 +58,6 @@ function Home() {
   ) : (
     <Loading />
   );
-}
+};
 
 export default Home;
