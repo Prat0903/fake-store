@@ -46,7 +46,10 @@ function Details() {
         <h2 className="text-zinc-500 my-3">₹{product.price}</h2>
         <h3 className="text-rose-500 mb-3">{product.category}</h3>
         <p className="mb-5">{product.description}</p>
-        <Link className="mr-2 py-2 px-3 border rounded-md text-blue-500 border-blue-300">
+        <Link
+          to={`/edit/${product.id}`}
+          className="mr-2 py-2 px-3 border rounded-md text-blue-500 border-blue-300"
+        >
           Edit
         </Link>
         <button
