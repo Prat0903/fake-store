@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { ProductContext } from "../utils/context";
+import { ProductContext } from "../utils/Context";
 import { useNavigate, useParams } from "react-router-dom";
 
 function Edit() {

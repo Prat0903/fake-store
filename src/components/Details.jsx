@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from "react";
-import axios from "../utils/Axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { ProductContext } from "../utils/Context";

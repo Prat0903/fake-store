@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../utils/Context";
 import Loading from "./Loading";
-import axios from "../utils/Axios";
+// import axios from "../utils/Axios";
 
 const Home = () => {
   const [products] = useContext(ProductContext);
@@ -12,15 +12,15 @@ const Home = () => {
 
   const [filteredProducts, setFilteredProducts] = useState(null);
 
-  async function getProductsCategory() {
-    try {
-      const { data } = await axios.get(`/products/category/${category}`);
-      setFilteredProducts(data);
-      // console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async function getProductsCategory() {
+  //   try {
+  //     const { data } = await axios.get(`/products/category/${category}`);
+  //     setFilteredProducts(data);
+  //     // console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   useEffect(() => {
     if (!filteredProducts || category == "undefined")
